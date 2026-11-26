@@ -42,23 +42,16 @@ export default function MarqueeReviews({ reviews = [] }) {
               </p>
             </div>
 
-            {/* Client Info footer */}
-            <div className="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
-              <img
-                src={review.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
-                alt={review.client_name}
-                className="w-10 h-10 rounded-full object-cover border border-gray-200 shrink-0"
-              />
-              <div className="overflow-hidden">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-bold-display text-sm font-bold text-black truncate">
-                    {review.client_name}
-                  </span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sonez-blue shrink-0" title="Verified Client" />
-                </div>
-                <div className="text-xs text-gray-500 truncate">
-                  {review.client_role}{review.client_company ? ` • ${review.client_company}` : ''}
-                </div>
+            {/* Client info footer (no profile image) */}
+            <div className="pt-4 border-t border-gray-100 mt-4">
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold-display text-sm font-bold text-black truncate">
+                  {review.client_name}
+                </span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-sonez-blue shrink-0" title="Verified Client" />
+              </div>
+              <div className="text-xs text-gray-500 truncate">
+                {review.client_role}{review.client_company ? ` • ${review.client_company}` : ''}
               </div>
             </div>
           </div>

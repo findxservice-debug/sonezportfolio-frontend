@@ -71,7 +71,7 @@ export default function AdminDashboard() {
   const [newTech, setNewTech] = useState({ name: '', category: 'Frontend', proficiency: 90, icon_key: 'react', sort_order: 1 });
   const [newCreative, setNewCreative] = useState({ title: '', category: 'UI/UX Design', image_url: '', link_url: '', description: '' });
   const [newProduct, setNewProduct] = useState({ title: '', description: '', price: '', currency: 'USD', category: 'Website Templates', features: '', images: '', image_url: '', demo_url: '', is_active: 1 });
-  const [newReview, setNewReview] = useState({ client_name: '', client_role: '', client_company: '', avatar_url: '', rating: 5, review_text: '', is_approved: 1 });
+  
 
   // Initialize siteForm with content
   useEffect(() => {
@@ -895,12 +895,11 @@ export default function AdminDashboard() {
                   <div key={r.id} className="p-5 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <img src={r.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80'} alt="" className="w-8 h-8 rounded-full object-cover" />
-                          <div>
-                            <span className="font-bold text-xs text-black block">{r.client_name}</span>
-                            <span className="text-[10px] text-gray-500">{r.client_role} • {r.client_company}</span>
-                          </div>
+                        <div>
+                          <span className="font-bold text-xs text-black block">{r.client_name}</span>
+                          <span className="text-[10px] text-gray-500">
+                            {r.client_role}{r.client_company ? ` • ${r.client_company}` : ''}
+                          </span>
                         </div>
                         <span className="font-mono text-xs font-bold text-amber-500">★ {r.rating}.0</span>
                       </div>
